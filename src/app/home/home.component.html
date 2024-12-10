@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <div class="text-center mb-4">
+      <img src="assets/images/logo.png" alt="Logo de BancoApp" class="img-fluid mb-3" style="max-width: 150px;">
+    </div>
+    <div class="bg-light p-3 rounded text-center mb-4">
+      <h3 class="text-success">Saldo Actual</h3>
+      <p class="display-4 font-weight-bold">$ {{ currentBalance }}</p>
+    </div>
+    <div class="transfer-history mt-4">
+      <h4>Últimas Transferencias</h4>
+      <ul class="list-group">
+        <li
+          *ngFor="let transfer of transfers; let i = index"
+          class="list-group-item d-flex justify-content-between align-items-start border-0 shadow-sm mb-2"
+        >
+          <div>
+            <p class="mb-0"><strong>Cuenta:</strong> {{ transfer.accountNumber }}</p>
+            <p class="mb-0"><strong>Monto:</strong> <span class="text-danger">$ {{ transfer.amount }}</span></p>
+            <p class="mb-0"><strong>Descripción:</strong> {{ transfer.description }}</p>
+            <p class="text-muted"><small><strong>Fecha:</strong> {{ transfer.date }}</small></p>
+          </div>
+          <img src="assets/images/transfer-icon.png" alt="Ícono de transferencia" style="width: 40px; height: 40px;">
+        </li>
+      </ul>
+      <p *ngIf="transfers.length === 0" class="text-muted mt-3 text-center">
+        No hay transferencias registradas.
+      </p>
+    </div>
+  </div>
+</div>

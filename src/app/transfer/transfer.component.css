@@ -1,0 +1,62 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .card {
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-primary {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .text-success {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .btn-success {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+  }
+  
+  .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.25);
+  }
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    border-left: 4px solid #007bff;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .list-group-item .text-danger {
+    font-weight: bold;
+  }
+  
+  .text-muted {
+    font-style: italic;
+    color: #6c757d !important;
+  }
+  
+  .invalid-feedback {
+    font-size: 0.9rem;
+    color: #dc3545;
+  }
+  

@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <h2 class="text-primary text-center mb-4">Realizar Transferencia</h2>
+    <form (submit)="onSubmit($event)">
+      <div class="mb-3">
+        <label for="accountNumber" class="form-label">Cuenta Destino:</label>
+        <input
+          type="text"
+          id="accountNumber"
+          class="form-control"
+          [class.is-invalid]="accountNumberError"
+          placeholder="Ingrese la cuenta destino"
+          required
+        />
+        <div *ngIf="accountNumberError" class="invalid-feedback">
+          Por favor, ingrese un número de cuenta válido.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="amount" class="form-label">Monto:</label>
+        <input
+          type="number"
+          id="amount"
+          class="form-control"
+          [class.is-invalid]="amountError"
+          placeholder="Ingrese el monto a transferir"
+          required
+        />
+        <div *ngIf="amountError" class="invalid-feedback">
+          Por favor, ingrese un monto válido mayor a 0.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Descripción:</label>
+        <input
+          type="text"
+          id="description"
+          class="form-control"
+          placeholder="Ingrese una descripción (opcional)"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">Transferir</button>
+    </form>
+  </div>
+
+  <div class="mt-4">
+    <div class="card shadow-lg p-4">
+      <h3 class="text-center text-success">Saldo Actual: ${{ currentBalance }}</h3>
+    </div>
+
+    <div class="mt-4">
+      <h4>Historial de Transferencias</h4>
+      <ul class="list-group">
+        <li
+          *ngFor="let transfer of transfers"
+          class="list-group-item d-flex justify-content-between align-items-start border-0 shadow-sm mb-2"
+        >
+          <div>
+            <p class="mb-0"><strong>Cuenta:</strong> {{ transfer.accountNumber }}</p>
+            <p class="mb-0"><strong>Monto:</strong> <span class="text-danger">$ {{ transfer.amount }}</span></p>
+            <p class="mb-0"><strong>Descripción:</strong> {{ transfer.description }}</p>
+            <p class="text-muted"><small><strong>Fecha:</strong> {{ transfer.date }}</small></p>
+          </div>
+        </li>
+      </ul>
+      <p *ngIf="transfers.length === 0" class="text-muted mt-3 text-center">
+        No hay transferencias registradas.
+      </p>
+    </div>
+  </div>
+</div>
